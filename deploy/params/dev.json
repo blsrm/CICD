@@ -1,0 +1,54 @@
+[
+    {
+        "ParameterKey": "EnvName",
+        "ParameterValue": "dev"
+    },
+    {
+        "ParameterKey": "AppName",
+        "ParameterValue": "rettsplusweb"
+    },
+    {
+        "ParameterKey": "VpcId",
+        "ParameterValue": "vpc-0dc0e23d6361da87e"
+    },
+    {
+        "ParameterKey": "SubnetId",
+        "ParameterValue": "subnet-03904c5111ae577aa,subnet-040fc3f04a26d7fe5"
+    },
+    {
+        "ParameterKey": "ECSCluster",
+        "ParameterValue": "dev-predicare"
+    },
+    {
+        "ParameterKey": "ECRImage",
+        "ParameterValue": "365196281228.dkr.ecr.eu-central-1.amazonaws.com/dev-rettsplusweb:jenkins-build"
+    },
+    {
+        "ParameterKey": "SecurityGroupELB",
+        "ParameterValue": "sg-07ff2c46a2e8161f3"
+    },
+    {
+        "ParameterKey": "ServicePort",
+        "ParameterValue": "9101"
+    },
+    {
+        "ParameterKey": "MaxCapacityValue",
+        "ParameterValue": "2"
+    },
+    {
+        "ParameterKey": "MinCapacityValue",
+        "ParameterValue": "1"
+    },
+    {
+        "ParameterKey": "TaskDesiredCount",
+        "ParameterValue": "1"
+    },
+    {
+        "ParameterKey": "TaskMemory",
+        "ParameterValue": "512"
+    },
+    {
+        "ParameterKey": "AppHealthCheckPath",
+        "ParameterValue": "/"
+    }
+]

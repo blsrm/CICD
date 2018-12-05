@@ -1,0 +1,46 @@
+#FROM node:alpine
+FROM node:8.9.4
+
+ENV NPM_CONFIG_LOGLEVEL warn
+ARG app_env
+ENV APP_ENV $app_env
+ENV CHOKIDAR_USEPOLLING true
+
+ADD package.json /tmp/package.json
+COPY .npmrc /tmp/.npmrc
+RUN cd /tmp && yarn install
+RUN cd /
+RUN mkdir -p /app && cp -a /tmp/node_modules /app
+
+
+WORKDIR /app
+
+#COPY package.json package.json
+#RUN yarn install
+COPY . /app
+
+CMD if [ ${APP_ENV} = production ]; \
+	then \
+	npm install -g http-server && \
+	npm run build && \
+	cd build && \
+	hs -p 3000; \
+	else \
+	npm run start:server; \
+	fi
+
+EXPOSE 3000
+
+#DEVELOPMENT
+#Build:
+#docker build --tag=rettsplus .
+#Run:
+#docker run -it --rm -p 3000:3000 -v ${pwd}/src:/app/src rettsplus
+
+#PRODUCTION
+#Build:
+#docker build --tag=rettsplus:prod --build-arg app_env=production .
+#Run:
+#docker run -it -p 3000:3000 rettsplus:prod
+
+
